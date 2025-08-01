@@ -39,9 +39,10 @@ export const Navbar = () => {
         className={cn(
           "fixed w-full z-40 transition-all duration-500",
           isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5",
+          // Only apply show/hide animation on desktop
           showNavbar
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-10 pointer-events-none"
+            ? "md:opacity-100 md:translate-y-0 md:pointer-events-auto"
+            : "md:opacity-0 md:-translate-y-10 md:pointer-events-none"
         )}
         style={{ willChange: "opacity, transform" }}
       >
