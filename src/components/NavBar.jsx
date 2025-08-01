@@ -46,12 +46,12 @@ export const Navbar = () => {
         )}
         style={{ willChange: "opacity, transform" }}
       >
-        <div className="container flex items-center justify-between">
+        <div className="container flex items-center justify-between ">
           <a
             className="text-xl font-bold text-primary flex items-center"
             href="#hero"
           >
-            <span className="relative z-10">
+            <span className="relative z-10 hidden md:flex">
               <span className="text-glow text-foreground"> Deshal's </span>{" "}
               Portfolio
             </span>

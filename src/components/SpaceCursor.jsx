@@ -2,6 +2,17 @@ import { useEffect, useState } from "react";
 
 export const SpaceCursor = () => {
     const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+    const [showCursor, setShowCursor] = useState(true);
+
+    // Hide cursor on small screens
+    useEffect(() => {
+        const checkScreen = () => {
+            setShowCursor(window.innerWidth >= 768); // 768px is Tailwind's md breakpoint
+        };
+        checkScreen();
+        window.addEventListener("resize", checkScreen);
+        return () => window.removeEventListener("resize", checkScreen);
+    }, []);
 
     useEffect(() => {
         const handleThemeChange = () => {
@@ -16,6 +27,7 @@ export const SpaceCursor = () => {
     }, []);
 
     useEffect(() => {
+        if (!showCursor) return;
         const cursor = document.getElementById("space-cursor");
         const moveCursor = (e) => {
             if (cursor) {
@@ -25,9 +37,10 @@ export const SpaceCursor = () => {
         };
         window.addEventListener("mousemove", moveCursor);
         return () => window.removeEventListener("mousemove", moveCursor);
-    }, []);
+    }, [showCursor]);
 
-    // Stronger pink glow for dark mode
+    if (!showCursor) return null;
+
     const background =
         theme === "dark"
             ? "radial-gradient(circle, rgba(244,63,94,0.95) 0%, rgba(244,63,94,0.5) 70%, transparent 100%)"
@@ -40,7 +53,6 @@ export const SpaceCursor = () => {
         theme === "dark"
             ? "2px solid rgba(244,63,94,0.95)"
             : "2px solid rgba(244,63,94,1)";
-
     const mixBlendMode = theme === "dark" ? "screen" : "normal";
 
     return (
