@@ -23,13 +23,12 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Show toggle button if navbar is hidden
-  // (Button is always rendered for smooth transition)
   return (
     <>
+      {/* Show Navbar Button (desktop only) */}
       {!showNavbar && (
         <button
-          className="fixed top-5 right-5 z-50 cosmic-button shadow-xl border-2 border-primary bg-background text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+          className="fixed top-5 right-5 z-50 cosmic-button shadow-xl border-2 border-primary bg-background text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hidden md:block"
           onClick={() => setShowNavbar(true)}
         >
           Show Navbar
@@ -70,15 +69,16 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* mobile nav */}
+          {/* mobile nav toggle */}
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="md:hidden p-2 text-foreground z-50"
             aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
+          {/* mobile nav menu */}
           <div
             className={cn(
               "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
@@ -101,9 +101,9 @@ export const Navbar = () => {
               ))}
             </div>
           </div>
-          {/* Hide Navbar Button */}
+          {/* Hide Navbar Button (desktop only) */}
           <button
-            className="ml-4 px-3 py-1 rounded bg-red-500 text-white font-bold"
+            className="ml-4 px-3 py-1 rounded bg-red-500 text-white font-bold hidden md:block"
             onClick={() => setShowNavbar(false)}
           >
             Hide Navbar
