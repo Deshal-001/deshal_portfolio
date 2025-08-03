@@ -170,3 +170,28 @@
   cursor: none !important;
 }
 
+@keyframes typing {
+  from { width: 0; visibility: visible; }
+  to { width: 100%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+  100% { border-color: white; }
+}
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #fff;
+  width: 0;
+  animation:
+    typing 2s steps(20, end) forwards,
+    blink .7s infinite;
+}
+
+ @keyframes rocket-fly {
+  from { top: 0; }
+  to { top: 100vh; }
+}
+
+
+
