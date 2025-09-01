@@ -5,31 +5,32 @@ const projects = [
     id: 1,
     title: "UniConnect",
     description: "A Mobile app for university students to book events and connect with peers.With ios 16 new Liquid glass design.",
-    image: "public/projects/project1.png",
+    image: "public/uniConnect.png",
     tags: ["Flutter", "Springboot", "PostgreSQL"],
     demoUrl: "#",
     githubUrl: "https://github.com/Deshal-001/UniConnect",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "GemLens",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
+      "A Gemstone classification mobile app using CNN with progressive learning techniques and XAI integration.",
+    image: "public/gemlens.png",
+    tags: ["Flutter", "Python", "Flask","ML"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Deshal-001/GemLens",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Snake Eyes",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
+      "Snake Identification mobile app using image recognition using YOLOv3 and TFLite.",
+    image: "public/snakeEyes.png",
+    tags: ["Flutter", "Flask", "YOLOv3","TFLite"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Deshal-001/Snake-Eyes",
   },
+  
 ];
 
 export const ProjectsSection = () => {

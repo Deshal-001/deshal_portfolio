@@ -16,7 +16,7 @@ export const SpaceCursor = () => {
 
     useEffect(() => {
         const handleThemeChange = () => {
-            setTheme(localStorage.getItem("theme") || "light");
+            setTheme(localStorage.getItem("theme") || "dark");
         };
         window.addEventListener("themechange", handleThemeChange);
         window.addEventListener("storage", handleThemeChange);
