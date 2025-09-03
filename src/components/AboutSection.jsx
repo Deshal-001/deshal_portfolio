@@ -1,21 +1,29 @@
 import { Briefcase, Code, User } from "lucide-react";
+import { useState } from "react";
 
 export const AboutSection = () => {
+    const [hovered, setHovered] = useState(false);
+
     return (
         <section id="about" className="py-16 px-2 md:py-24 md:px-4 relative overflow-hidden">
             {/* Large Vintage Image as background left (hidden on mobile, shown above text on mobile) */}
-            <div className="absolute inset-y-0 left-0 w-1/3 min-w-[200px] z-0 hidden md:block">
+            {/* <div className="absolute inset-y-0 left-0 w-1/3 min-w-[200px] z-0 hidden md:block">
                 <img
                     src="/me.jpeg"
                     alt="Deshal"
-                    className="w-full h-full object-cover sepia rounded-r-3xl"
+                    className="w-full h-full object-cover sepia transition-all duration-500"
                     style={{
-                        filter: "sepia(0.3) contrast(1.15) brightness(0.7) saturate(1.1)",
-                        opacity: 0.7
+                        filter: hovered
+                            ? "sepia(0.4) contrast(1.1) brightness(0.6) saturate(1.1)"
+                            : "sepia(0.4) contrast(1.1) brightness(0.5) saturate(1.1)",
+                        opacity: 0.85,
+                        borderRadius: "0 2rem 2rem 0",
+                        boxShadow: "0 0 80px 40px rgba(0,0,0,0.7) inset"
                     }}
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
                 />
-                <div className="absolute inset-0 bg-black/70 rounded-r-3xl" />
-            </div>
+            </div> */}
 
             <div className="container mx-auto max-w-5xl relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
@@ -25,17 +33,24 @@ export const AboutSection = () => {
                 <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                     {/* Mobile: Show image above text */}
                     <div className="w-full flex justify-center mb-6 md:hidden">
-                        <div className="relative w-40 h-40">
+                        <div
+                            className="relative w-40 h-40"
+                            onMouseEnter={() => setHovered(true)}
+                            onMouseLeave={() => setHovered(false)}
+                        >
                             <img
                                 src="/me.jpeg"
                                 alt="Deshal"
-                                className="w-full h-full object-cover sepia rounded-2xl"
+                                className="w-full h-full object-cover sepia transition-all duration-500"
                                 style={{
-                                    filter: "sepia(0.3) contrast(1.15) brightness(0.7) saturate(1.1)",
-                                    opacity: 0.8
+                                    filter: hovered
+                                        ? "sepia(0.4) contrast(1.1) brightness(0.6) saturate(1.1)"
+                                        : "sepia(0.4) contrast(1.1) brightness(0.5) saturate(1.1)",
+                                    opacity: 0.85,
+                                    borderRadius: "1rem",
+                                    boxShadow: "0 0 40px 20px rgba(0,0,0,0.7) inset"
                                 }}
                             />
-                            <div className="absolute inset-0 bg-black/60 rounded-2xl" />
                         </div>
                     </div>
 
